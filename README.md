@@ -4,6 +4,9 @@ Seguir de uma forma simples os gastos financeiros.
 
 ### Instalar
 
+1. Clonar projeto com `git clone https://github.com/hrafaelveloso/personal-finances-tracking.git`
+2. Aceder à pasta criada (`cd personal-finances-tracking`).
+
 Dentro da página do projeto:
 
 1. Correr `npm install`
