@@ -19,6 +19,10 @@ const useStyles = makeStyles(
     main: {
       marginTop: '50px',
     },
+    flexCenter: {
+      alignItems: 'center',
+      display: 'flex',
+    },
   }),
   { name: 'Main' }
 );
@@ -154,14 +158,11 @@ const Main: React.FC = () => {
           <Box height="15px" />
           <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid item xs={12} md={6}>
                 <YearPicker onChange={updateField} value={year} />
               </Grid>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid item xs={12} md={6}>
                 <MonthPicker onChange={updateField} value={month} />
-              </Grid>
-              <Grid item xs={12} md={6} lg={4}>
-                <AmountPicker onChange={updateField} value={amount} />
               </Grid>
               <Grid item xs={12} md={6}>
                 <Autocomplete
@@ -199,9 +200,14 @@ const Main: React.FC = () => {
               </Grid>
               {!isEmpty(error) && <ErrorMessage message={error} />}
               <Grid item xs={12}>
-                <Grid container justify="center">
-                  <Grid item>
-                    <Button onClick={saveLog}>Guardar</Button>
+                <Grid container justify="space-between">
+                  <Grid item xs={6} lg={4}>
+                    <AmountPicker onChange={updateField} value={amount} />
+                  </Grid>
+                  <Grid item className={classes.flexCenter}>
+                    <Button onClick={saveLog} disabled={amount === 0}>
+                      Guardar
+                    </Button>
                   </Grid>
                 </Grid>
               </Grid>
